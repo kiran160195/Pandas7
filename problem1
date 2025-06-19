@@ -1,0 +1,17 @@
+import pandas as pd
+
+def food_delivery(delivery: pd.DataFrame) -> pd.DataFrame:
+    immediate_percentage = round(
+        ((delivery['order_date'] == delivery['customer_pref_delivery_date']).sum() / len(delivery)) * 100, 
+        2
+    )
+    return pd.DataFrame({'immediate_percentage': [immediate_percentage]})
+
+# import pandas as pd
+
+# def food_delivery_with_mean(delivery: pd.DataFrame) -> pd.DataFrame:
+#     immediate_percentage = round(
+#         (delivery['order_date'] == delivery['customer_pref_delivery_date']).mean() * 100, 
+#         2
+#     )
+#     return pd.DataFrame({'immediate_percentage': [immediate_percentage]})
